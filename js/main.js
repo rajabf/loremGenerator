@@ -14,6 +14,7 @@ let elTags = document.querySelector('#tags')
 let elSelect = document.querySelector('#include')
 
 let output = document.querySelector('.output')
+let elCopyBtn = document.querySelector('#copy')
 
 elParagraphs.addEventListener('input', evt => {
     elParagraphsValue.textContent = evt.target.value
@@ -59,7 +60,7 @@ function renderResult(result){
         output.appendChild(newParagraph)
         i++
     });
-
+    
     let mustRemove = document.querySelector('.output').lastChild
     mustRemove.remove()
 }
@@ -85,4 +86,13 @@ inputForm.addEventListener('submit', evt => {
     evt.preventDefault()
     output.innerHTML = ''
     getLorem()
+})
+
+elCopyBtn.addEventListener('click', evt => {
+    evt.preventDefault()
+    
+    elCopyBtn.textContent = "Copied"
+    navigator.clipboard.writeText(output.textContent);
+    
+    alert("Copied the text: " + output.textContent);
 })
