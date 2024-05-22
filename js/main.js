@@ -85,6 +85,7 @@ async function getLorem(){
 inputForm.addEventListener('submit', evt => {
     evt.preventDefault()
     output.innerHTML = ''
+    elCopyBtn.innerText = 'Copy'
     getLorem()
 })
 
